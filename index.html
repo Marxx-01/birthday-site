@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Ribby 🖤💙</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background:
+            radial-gradient(circle at top, #0b2450 0%, #030812 40%, #000 100%);
+        color: white;
+        overflow-x: hidden;
+        min-height: 100vh;
+    }
+
+    /* STARS */
+    .stars {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .star {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.7;
+        animation: twinkle 3s infinite alternate;
+    }
+
+    @keyframes twinkle {
+        from { opacity: 0.2; transform: scale(1); }
+        to { opacity: 1; transform: scale(1.8); }
+    }
+
+    /* GENERAL PAGE */
+    .page {
+        min-height: 100vh;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 20px;
+        animation: fadeIn 1s ease;
+    }
+
+    .page.active {
+        display: flex;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .card {
+        width: min(760px, 95%);
+        padding: 45px 35px;
+        border-radius: 25px;
+        background: rgba(5, 13, 30, 0.78);
+        border: 1px solid rgba(80, 150, 255, 0.25);
+        backdrop-filter: blur(14px);
+        box-shadow:
+            0 0 50px rgba(0, 110, 255, 0.12),
+            inset 0 0 40px rgba(30, 100, 255, 0.04);
+        text-align: center;
+    }
+
+    h1 {
+        font-size: clamp(2.4rem, 7vw, 4.5rem);
+        margin-bottom: 15px;
+        background: linear-gradient(90deg, #ffffff, #75baff, #377dff);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    h2 {
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        color: #7cbcff;
+        margin-bottom: 20px;
+    }
+
+    p {
+        line-height: 1.8;
+        font-size: 1.08rem;
+        color: #d7e7ff;
+    }
+
+    .small {
+        opacity: 0.65;
+        font-size: 0.9rem;
+        margin-top: 15px;
+    }
+
+    .blue {
+        color: #6eb6ff;
+        font-weight: bold;
+    }
+
+    .heart {
+        font-size: 65px;
+        display: inline-block;
+        margin: 15px;
+        animation: heartbeat 1.4s infinite;
+        filter: drop-shadow(0 0 18px #187cff);
+    }
+
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        20% { transform: scale(1.15); }
+        40% { transform: scale(1); }
+        60% { transform: scale(1.12); }
+    }
+
+    button {
+        margin-top: 30px;
+        padding: 14px 28px;
+        border: none;
+        border-radius: 100px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        background: linear-gradient(135deg, #075eff, #179bff);
+        cursor: pointer;
+        box-shadow: 0 0 25px rgba(0, 119, 255, 0.35);
+        transition: 0.25s;
+    }
+
+    button:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 0 35px rgba(0, 140, 255, 0.65);
+    }
+
+    .quote {
+        margin: 30px auto;
+        padding: 20px;
+        max-width: 560px;
+        border-left: 3px solid #2f8cff;
+        background: rgba(0, 100, 255, 0.07);
+        border-radius: 8px;
+        font-size: 1.25rem;
+        font-style: italic;
+    }
+
+    /* CHAT */
+    .chat {
+        max-width: 500px;
+        margin: 30px auto;
+        text-align: left;
+    }
+
+    .bubble {
+        max-width: 80%;
+        padding: 13px 18px;
+        border-radius: 18px;
+        margin: 12px 0;
+        animation: pop 0.6s ease;
+    }
+
+    .ribby {
+        background: #172237;
+        border-bottom-left-radius: 4px;
+    }
+
+    .markom {
+        margin-left: auto;
+        background: #0868db;
+        border-bottom-right-radius: 4px;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0.7); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    /* INTERESTS */
+    .interests {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+    .interest {
+        padding: 12px 18px;
+        background: rgba(40, 120, 255, 0.12);
+        border: 1px solid rgba(80, 160, 255, 0.25);
+        border-radius: 100px;
+    }
+
+    /* 15 REASONS */
+    #reasonBox {
+        min-height: 120px;
+        margin-top: 25px;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(30, 100, 255, 0.08);
+        border-radius: 20px;
+        border: 1px solid rgba(80, 150, 255, 0.2);
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    #reasonCounter {
+        color: #69afff;
+        margin-top: 15px;
+    }
+
+    /* FINAL GIFT */
+    .gift {
+        font-size: 80px;
+        cursor: pointer;
+        display: inline-block;
+        margin: 20px;
+        animation: giftShake 2s infinite;
+        filter: drop-shadow(0 0 20px #168aff);
+    }
+
+    @keyframes giftShake {
+        0%, 80%, 100% { transform: rotate(0deg); }
+        85% { transform: rotate(-8deg); }
+        90% { transform: rotate(8deg); }
+        95% { transform: rotate(-5deg); }
+    }
+
+    #giftMessage {
+        display: none;
+        margin-top: 20px;
+        animation: fadeIn 1s ease;
+    }
+
+    /* FLOATING HEARTS */
+    .floating-heart {
+        position: fixed;
+        bottom: -50px;
+        font-size: 25px;
+        pointer-events: none;
+        z-index: 999;
+        animation: floatUp 4s linear forwards;
+    }
+
+    @keyframes floatUp {
+        to {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    /* CAT */
+    .cat {
+        font-size: 55px;
+        margin: 15px;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    #catText {
+        min-height: 30px;
+        color: #8cc7ff;
+    }
+
+    .song {
+        margin: 25px auto;
+        padding: 22px;
+        max-width: 500px;
+        background: rgba(0,0,0,0.35);
+        border-radius: 18px;
+        border: 1px solid #173a66;
+    }
+
+    .signature {
+        margin-top: 30px;
+        font-size: 1.35rem;
+        color: #73b8ff;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<!-- PAGE 1 -->
+<section class="page active" id="page1">
+    <div class="card">
+        <div class="heart">💙</div>
+
+        <h1>For Ribby.</h1>
+
+        <p>
+            Happy 15th Birthday to someone who became
+            very, very special to me.
+        </p>
+
+        <p class="small">
+            Made with an unreasonable amount of love by your Markom.
+        </p>
+
+        <button onclick="nextPage(2)">
+            Start our story →
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+    <div class="card">
+        <h2>🌙 How It Started</h2>
+
+        <p>
+            It's kinda crazy thinking about how this all started.
+        </p>
+
+        <br>
+
+        <p>
+            Just a random server.
+            Two people who barely talked.
+            Neither of us knowing what was about to happen.
+        </p>
+
+        <div class="quote">
+            And somehow, that random server gave me you.
+        </div>
+
+        <button onclick="nextPage(3)">
+            Then something terrifying happened... 😨
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+    <div class="card">
+        <h2>The Boo Incident 👻</h2>
+
+        <p>
+            One completely normal day...
+        </p>
+
+        <div class="chat">
+            <div class="bubble ribby">
+                <b>Ribby</b><br>
+                boo
+            </div>
+
+            <div class="bubble markom">
+                <b>Markom</b><br>
+                AHH DONT SCARE ME DUMMY
+            </div>
+        </div>
+
+        <p>
+            And somehow one little <span class="blue">"boo"</span>
+            was the beginning of us talking more and more.
+        </p>
+
+        <button onclick="nextPage(4)">
+            Keep going 💙
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+    <div class="card">
+        <h2>🤫 The Secret</h2>
+
+        <p>
+            Then came the part where you kept asking me
+            who my crush was.
+        </p>
+
+        <br>
+
+        <p>
+            There was just one tiny problem...
+        </p>
+
+        <div class="quote">
+            It was you.
+        </div>
+
+        <p>
+            And apparently you liked me too.
+        </p>
+
+        <br>
+
+        <p>
+            So basically we were two idiots liking each other
+            while both being too scared to actually say it. 😭
+        </p>
+
+        <button onclick="nextPage(5)">
+            Until Lulu had enough... 💀
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+    <div class="card">
+        <h2>🫡 Lulu, The Wingman</h2>
+
+        <p>
+            I was talking about how much I liked you
+            while also being absolutely terrified to tell you.
+        </p>
+
+        <br>
+
+        <p>
+            Lulu eventually decided:
+        </p>
+
+        <div class="quote">
+            "fuck this"
+        </div>
+
+        <p>
+            Then disappeared...
+        </p>
+
+        <br>
+
+        <p>
+            And about ten minutes later:
+        </p>
+
+        <div class="quote">
+            "go text her now."
+        </div>
+
+        <p class="small">
+            Lulu deserves an achievement for this one. 🏆
+        </p>
+
+        <button onclick="nextPage(6)">
+            And then you messaged me...
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+    <div class="card">
+        <h2>❤️ The Confession</h2>
+
+        <div class="chat">
+            <div class="bubble ribby">
+                <b>Ribby</b><br>
+                i know who you like
+            </div>
+        </div>
+
+        <p>
+            Yeah...
+        </p>
+
+        <br>
+
+        <p>
+            My heart probably stopped working for a second there.
+        </p>
+
+        <br>
+
+        <p>
+            But I finally told you.
+        </p>
+
+        <p>
+            I wrote that whole paragraph explaining why
+            I loved you and how much you meant to me.
+        </p>
+
+        <div class="quote">
+            And then I asked you one question...
+        </div>
+
+        <button onclick="nextPage(7)">
+            See the question ❤️
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 7 -->
+<section class="page" id="page7">
+    <div class="card">
+        <div class="heart">❤️</div>
+
+        <h2>Will you be mine forever?</h2>
+
+        <p class="small">
+            Markom was probably experiencing approximately
+            847 heartbeats per second at this moment.
+        </p>
+
+        <button onclick="nextPage(8)">
+            Your answer...
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 8 -->
+<section class="page" id="page8">
+    <div class="card">
+        <h1>YES. 💙</h1>
+
+        <p>
+            You went into tomato mode.
+        </p>
+
+        <p>
+            You cried a little.
+        </p>
+
+        <br>
+
+        <p>
+            And meanwhile I was probably the happiest boy alive.
+        </p>
+
+        <div class="heart">💙</div>
+
+        <p>
+            That's the day <b>you became my Ribby.</b>
+        </p>
+
+        <button onclick="heartExplosion(); nextPage(9)">
+            Our memories →
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 9 -->
+<section class="page" id="page9">
+    <div class="card">
+        <h2>🔫 The R.E.P.O. Incident</h2>
+
+        <p>
+            One of my favorite memories with you...
+        </p>
+
+        <br>
+
+        <p>
+            We were playing R.E.P.O.
+        </p>
+
+        <br>
+
+        <p>
+            Everything was going great.
+        </p>
+
+        <br>
+
+        <h2>UNTIL YOU SHOT ME TO DEATH WITH A SHOTGUN 😭</h2>
+
+        <p>
+            And somehow getting murdered by my girlfriend
+            became one of my favorite memories because
+            we laughed so much together.
+        </p>
+
+        <div class="quote">
+            10/10 girlfriend.<br>
+            Questionable teammate.
+        </div>
+
+        <button onclick="nextPage(10)">
+            Okay enough murder 💀 →
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 10 -->
+<section class="page" id="page10">
+    <div class="card">
+        <h2>🎧 Our Song</h2>
+
+        <div class="song">
+            <h2>Understand</h2>
+            <p>keshi</p>
+        </div>
+
+        <p>
+            You were the one who recommended this song to me.
+        </p>
+
+        <br>
+
+        <p>
+            And now whenever I hear it,
+            there's one person it makes me think about.
+        </p>
+
+        <div class="quote">
+            You. 💙
+        </div>
+
+        <button onclick="openSong()">
+            🎧 Play Understand
+        </button>
+
+        <br>
+
+        <button onclick="nextPage(11)">
+            Continue →
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 11 -->
+<section class="page" id="page11">
+    <div class="card">
+        <h2>Things That Make Ribby, Ribby.</h2>
+
+        <div class="interests">
+            <div class="interest">🐱 Cats</div>
+            <div class="interest">🎨 Drawing</div>
+            <div class="interest">🎮 Playing</div>
+            <div class="interest">🏐 Volleyball</div>
+            <div class="interest">❤️ Markom hehe</div>
+        </div>
+
+        <br><br>
+
+        <div class="cat" onclick="petCat()">🐈‍⬛</div>
+
+        <p id="catText">
+            Psst... pet the cat.
+        </p>
+
+        <button onclick="nextPage(12)">
+            I have something to tell you →
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 12 -->
+<section class="page" id="page12">
+    <div class="card">
+        <h2>💙 15 Things I Love About You</h2>
+
+        <p>
+            One for every year of the birthday girl.
+        </p>
+
+        <div id="reasonBox">
+            Click below to reveal the first one.
+        </div>
+
+        <div id="reasonCounter">
+            0 / 15
+        </div>
+
+        <button id="reasonButton" onclick="nextReason()">
+            Reveal 💙
+        </button>
+
+        <br>
+
+        <button id="reasonContinue"
+                onclick="nextPage(13)"
+                style="display:none;">
+            One last thing... →
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 13 -->
+<section class="page" id="page13">
+    <div class="card">
+        <h2>Dear Ribby,</h2>
+
+        <p>
+            I don't think you fully understand how happy
+            you've made me.
+        </p>
+
+        <br>
+
+        <p>
+            I love how kind you are.
+            I love how sweet you are.
+            I love laughing with you over the dumbest things.
+            And yes, I absolutely love how pretty my sweet girl is.
+        </p>
+
+        <br>
+
+        <p>
+            Even though we're far away from each other,
+            you've managed to become such an important part
+            of my life.
+        </p>
+
+        <br>
+
+        <p>
+            Every call, every game, every stupid joke,
+            every little message...
+        </p>
+
+        <p>
+            I treasure all of it.
+        </p>
+
+        <br>
+
+        <p>
+            I hope your 15th birthday makes you smile
+            even half as much as you make me smile.
+        </p>
+
+        <div class="signature">
+            I love you, Ribby. 🖤💙<br><br>
+            — Your Markom
+        </div>
+
+        <button onclick="nextPage(14)">
+            Finish ❤️
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 14 -->
+<section class="page" id="page14">
+    <div class="card">
+        <h2>That's everything.</h2>
+
+        <p>
+            Happy birthday, my sweet girl. 💙
+        </p>
+
+        <br><br>
+
+        <p id="waitText" style="opacity:0;">
+            ...
+        </p>
+
+        <button id="waitButton" onclick="fakeEnding()">
+            ❤️
+        </button>
+    </div>
+</section>
+
+
+<!-- PAGE 15 -->
+<section class="page" id="page15">
+    <div class="card">
+        <h2>Wait...</h2>
+
+        <p>
+            You didn't seriously think Markom was done,
+            did you? 👀
+        </p>
+
+        <br>
+
+        <p>
+            There's one more thing.
+        </p>
+
+        <div class="gift" onclick="openGift()">🎁</div>
+
+        <p class="small">
+            Tap the gift.
+        </p>
+
+        <div id="giftMessage">
+            <h2>COMING SOON 👀💙</h2>
+
+            <p>
+                Markom is hiding your final surprise here.
+            </p>
+
+            <br>
+
+            <p>
+                Nice try, Ribby. 😭
+            </p>
+
+            <br>
+
+            <button onclick="nextPage(16)">
+                💙 Final message
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE 16 -->
+<section class="page" id="page16">
+    <div class="card">
+        <div class="heart">💙</div>
+
+        <h1>Happy 15th Birthday, Ribby.</h1>
+
+        <p>
+            Out of all the people I could've met...
+        </p>
+
+        <br>
+
+        <p>
+            I'm really glad it was you.
+        </p>
+
+        <br>
+
+        <p class="signature">
+            Forever your Markom. 🖤💙
+        </p>
+
+        <button onclick="heartExplosion()">
+            💙
+        </button>
+    </div>
+</section>
+
+
+<script>
+
+    /* PAGE SWITCHING */
+    function nextPage(number) {
+        document.querySelectorAll(".page").forEach(page => {
+            page.classList.remove("active");
+        });
+
+        document.getElementById("page" + number).classList.add("active");
+
+        window.scrollTo(0, 0);
+    }
+
+
+    /* STARS */
+    const starContainer = document.getElementById("stars");
+
+    for (let i = 0; i < 90; i++) {
+        const star = document.createElement("div");
+        star.className = "star";
+
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+
+        const size = Math.random() * 2 + 1;
+
+        star.style.width = size + "px";
+        star.style.height = size + "px";
+
+        star.style.animationDelay = Math.random() * 3 + "s";
+
+        starContainer.appendChild(star);
+    }
+
+
+    /* HEART EXPLOSION */
+    function heartExplosion() {
+
+        for (let i = 0; i < 35; i++) {
+
+            const heart = document.createElement("div");
+
+            heart.className = "floating-heart";
+
+            const hearts = ["💙", "🖤", "❤️"];
+
+            heart.innerHTML =
+                hearts[Math.floor(Math.random() * hearts.length)];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.animationDuration =
+                (Math.random() * 2 + 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+    }
+
+
+    /* CAT */
+    let catClicks = 0;
+
+    function petCat() {
+
+        catClicks++;
+
+        const messages = [
+            "Ribby approves. 🐈‍⬛",
+            "meow.",
+            "The cat has accepted you.",
+            "Okay stop petting me 😭",
+            "Fine... one more.",
+            "Achievement unlocked: Certified Cat Person 🏆"
+        ];
+
+        document.getElementById("catText").innerText =
+            messages[Math.min(catClicks - 1, messages.length - 1)];
+    }
+
+
+    /* 15 REASONS */
+    const reasons = [
+
+    "1. Your kindness. You genuinely have the kindest heart ever. ❤️‍🩹",
+
+    "2. I love how sweet you’ve always been with me. I adore it so much. 🥹",
+
+    "3. I love your laugh. We usually laugh at the dumbest things, but with you, they’re my favorite moments. 🥹❤️‍🩹",
+
+    "4. I love how beautiful you are. Yes, Ribby, you are very pretty. Deal with it >:(",
+
+    "5. Talking with you just makes any normal day special. So every day is special for me lol. 😅❤️‍🩹",
+
+    "6. Playing games with you. It just makes the game 2x more fun just because I’m playing with you. ☺️💙",
+
+    "7. You are actually very creative and smart. Yes, you are, and no one says otherwise >:(",
+
+    "8. I gotta add the love for your cat cuz it’s so adorable (you too ;) ). 💙",
+
+    "9. You’re very hardworking and always try to succeed in life, which shows just how determined you are. 🥹💙",
+
+    "10. Those little things you say that just stay in my head afterwards are something I love sooo much. 🥹🙏",
+
+    "11. I love that I can be the Mark I usually am. I don’t have to change, and I love you for that :) ❤️",
+
+    "12. Every little memory we make always stays in my head, and I just can’t wait for the next one. 🫠💙",
+
+    "13. The way I smile whenever a message from you just pops up on my screen. 😅💙",
+
+    "14. The way my smile never fades whenever we call (you can probs hear it.. 😭)",
+
+    "15. I love you because you are yourself around me. I don’t want you to be anybody else around me. Just you. Because you are the person who brings joy to my life. I love you so much, my sweet girl. 🥹❤️‍🩹"
+    ];
+
+    let reasonIndex = 0;
+
+    function nextReason() {
+
+        if (reasonIndex < reasons.length) {
+
+            document.getElementById("reasonBox").innerText =
+                reasons[reasonIndex];
+
+            reasonIndex++;
+
+            document.getElementById("reasonCounter").innerText =
+                reasonIndex + " / 15";
+
+            heartExplosion();
+
+            if (reasonIndex === reasons.length) {
+
+                document.getElementById("reasonButton").style.display =
+                    "none";
+
+                document.getElementById("reasonContinue").style.display =
+                    "inline-block";
+            }
+        }
+    }
+
+
+    /* FAKE ENDING */
+    let endingStage = 0;
+
+    function fakeEnding() {
+
+        endingStage++;
+
+        const text = document.getElementById("waitText");
+        const button = document.getElementById("waitButton");
+
+        text.style.opacity = "1";
+
+        if (endingStage === 1) {
+            text.innerText = "Wait...";
+            button.innerText = "huh?";
+        }
+
+        else if (endingStage === 2) {
+            text.innerText = "Something doesn't feel right...";
+            button.innerText = "👀";
+        }
+
+        else {
+            nextPage(15);
+        }
+    }
+
+
+    /* GIFT */
+    function openGift() {
+
+        document.getElementById("giftMessage").style.display =
+            "block";
+
+        heartExplosion();
+    }
+
+
+    /* SONG */
+    function openSong() {
+
+        window.open(
+            "https://www.youtube.com/results?search_query=keshi+understand",
+            "_blank"
+        );
+    }
+
+</script>
+
+</body>
+</html>
