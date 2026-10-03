@@ -293,6 +293,22 @@
         border: 1px solid #173a66;
     }
 
+
+    /* R.E.P.O. MEMORY VIDEO */
+    .memory-video {
+        width: 100%;
+        max-width: 650px;
+        margin: 20px auto;
+    }
+
+    .memory-video video {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 18px;
+        box-shadow: 0 0 30px rgba(40, 120, 255, 0.25);
+    }
+
     .signature {
         margin-top: 30px;
         font-size: 1.35rem;
@@ -598,6 +614,19 @@
             we laughed so much together.
         </p>
 
+        <br>
+
+        <p><b>And yes... I have evidence. 💀</b></p>
+
+        <div class="memory-video">
+            <video controls playsinline preload="metadata">
+                <source src="new-repo-memory%20%281%29.mp4" type="video/mp4">
+                Your browser doesn't support this video.
+            </video>
+        </div>
+
+        <br>
+
         <div class="quote">
             10/10 girlfriend.<br>
             Questionable teammate.
@@ -610,6 +639,7 @@
 </section>
 
 
+
 <!-- PAGE 10 -->
 <section class="page" id="page10">
     <div class="card">
@@ -618,6 +648,19 @@
         <div class="song">
             <h2>Understand</h2>
             <p>keshi</p>
+
+            <br>
+
+            <iframe
+                style="border-radius:12px"
+                src="https://open.spotify.com/embed/track/72sfmdpuO5r8cBDgs7MqZZ"
+                width="100%"
+                height="152"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
         </div>
 
         <p>
@@ -635,18 +678,11 @@
             You. 💙
         </div>
 
-        <button onclick="openSong()">
-            🎧 Play Understand
-        </button>
-
-        <br>
-
         <button onclick="nextPage(11)">
             Continue →
         </button>
     </div>
 </section>
-
 
 <!-- PAGE 11 -->
 <section class="page" id="page11">
@@ -1044,16 +1080,6 @@
             "block";
 
         heartExplosion();
-    }
-
-
-    /* SONG */
-    function openSong() {
-
-        window.open(
-            "https://www.youtube.com/results?search_query=keshi+understand",
-            "_blank"
-        );
     }
 
 </script>
