@@ -314,12 +314,146 @@
         font-size: 1.35rem;
         color: #73b8ff;
     }
+
+    /* SECRET HEART HUNT */
+    .secret-trigger {
+        display: inline-block;
+        cursor: pointer;
+        border: 0;
+        background: none;
+        box-shadow: none;
+        padding: 3px 7px;
+        margin: 0;
+        font: inherit;
+        color: inherit;
+        transition: transform .2s, filter .2s;
+    }
+    .secret-trigger:hover, .secret-trigger:focus-visible {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 9px #60baff);
+        outline-offset: 3px;
+    }
+    .hunt-hud {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        z-index: 1000;
+        padding: 9px 14px;
+        border-radius: 30px;
+        background: rgba(5, 17, 40, .92);
+        border: 1px solid rgba(100, 175, 255, .5);
+        color: #d8eaff;
+        font-size: .88rem;
+        box-shadow: 0 4px 20px #0008;
+        cursor: pointer;
+    }
+    .hunt-hud:hover { background: #11284d; }
+    .secret-toast {
+        position: fixed;
+        bottom: 22px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2000;
+        width: min(92vw, 450px);
+        padding: 16px 20px;
+        border-radius: 18px;
+        background: #0b2044;
+        border: 1px solid #65b1ff;
+        box-shadow: 0 0 35px #127bff66;
+        color: white;
+        text-align: center;
+        line-height: 1.6;
+    }
+    .hunt-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 1900;
+        background: #000b;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    .hunt-modal.open { display: flex; }
+    .hunt-panel {
+        width: min(100%, 520px);
+        padding: 30px 22px;
+        border: 1px solid #438ae5;
+        border-radius: 22px;
+        background: #08182f;
+        box-shadow: 0 0 40px #1565e955;
+        text-align: center;
+    }
+    .hunt-panel p { margin: 12px 0; }
+    .hunt-panel button { margin: 12px 5px 0; }
+    .hunt-progress { font-size: 1.4rem; letter-spacing: .14em; margin: 14px 0; }
+    .secret-note { margin: 14px auto; color: #a9d4ff; font-size: .95rem; }
+    @media (max-width: 500px) {
+        .hunt-hud { top: 8px; right: 8px; font-size: .78rem; padding: 7px 10px; }
+        .page { padding-top: 65px; }
+    }
+
+
+    /* BONUS ARCADE */
+    .arcade-tab {position:fixed;right:12px;bottom:12px;z-index:1100;background:#102e5a;color:#fff;border:1px solid #72b7ff;border-radius:22px;padding:11px 15px;box-shadow:0 0 18px #1673d766;cursor:pointer;font-weight:700}
+    .arcade-tab:hover,.arcade-tab:focus-visible{background:#19447d}
+    .arcade-overlay{position:fixed;inset:0;z-index:2100;background:#020713dd;display:none;align-items:center;justify-content:center;padding:18px;overflow-y:auto}
+    .arcade-overlay.open{display:flex}
+    .arcade-panel{width:min(100%,560px);max-height:90vh;overflow-y:auto;background:linear-gradient(145deg,#081b37,#0b1128);border:1px solid #4e9bf2;border-radius:22px;padding:25px 22px;color:#e8f3ff;box-shadow:0 0 40px #2478ff55;text-align:center}
+    .arcade-panel h2{margin-bottom:12px}
+    .arcade-panel p{line-height:1.55;margin:12px 0}
+    .arcade-menu{display:grid;gap:10px;margin:18px 0}
+    .arcade-panel button{cursor:pointer}
+    .arcade-menu button,.arcade-action{border:1px solid #509bec;border-radius:14px;background:#15365e;color:white;padding:12px 15px;font:inherit}
+    .arcade-menu button:hover,.arcade-action:hover{background:#24518a}
+    .arcade-choices{display:grid;gap:9px;margin:18px 0}
+    .arcade-choices button{padding:12px;border:1px solid #4e82c1;border-radius:12px;background:#0f294c;color:white;font:inherit}
+    .arcade-choices button:hover{background:#1e497b}
+    .arcade-note{border:1px dashed #65b2ff;border-radius:15px;padding:17px;margin:14px 0;background:#0d2b52}
+    .arcade-panel input{width:min(100%,280px);padding:12px;border:1px solid #7bbcff;border-radius:12px;background:#07172b;color:white;font:inherit;text-align:center;letter-spacing:.15em}
+    .arcade-small{font-size:.88rem;color:#b6d6ff}
+    @media(max-width:500px){.arcade-tab{bottom:8px;right:8px;font-size:.8rem;padding:9px 11px}.arcade-panel{padding:20px 14px}}
+
+    /* OPEN WHEN LETTERS — VISIBLE STORY PAGE */
+    .letters-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0}
+    .letter-envelope{min-height:116px;border:1px solid #67aaf0;border-radius:16px;background:linear-gradient(145deg,#0d2449,#142c52);color:#f3f8ff;padding:14px 10px;cursor:pointer;font:inherit;transition:transform .2s,box-shadow .2s}
+    .letter-envelope:hover,.letter-envelope:focus-visible{transform:translateY(-3px);box-shadow:0 0 22px #3997f855}
+    .letter-envelope .envelope-icon{display:block;font-size:2rem;margin-bottom:9px}
+    .letter-envelope.opened{border-color:#9bd1ff;background:#183a65}
+    .letter-paper{margin:20px 0;padding:23px 18px;border:1px solid #9cc9ff;border-radius:18px;background:#eaf4ff;color:#17345c;text-align:left;box-shadow:0 12px 30px #0005}
+    .letter-paper h3{color:#123965;text-align:center;margin-bottom:15px}
+    .letter-paper p{color:#17345c;margin:12px 0;line-height:1.75}
+    .letter-paper .letter-signoff{text-align:right;font-style:italic;margin-top:20px}
+    .letters-help{color:#badcff;font-size:.92rem}
+    @media(max-width:430px){.letters-grid{grid-template-columns:1fr}.letter-envelope{min-height:82px}}
 </style>
 </head>
 
 <body>
 
 <div class="stars" id="stars"></div>
+<button class="hunt-hud" type="button" onclick="showHunt()" aria-label="Open secret heart hunt progress">💙 Secrets: <span id="huntCount">0</span>/5</button>
+<div class="hunt-modal" id="huntModal" role="dialog" aria-modal="true" aria-label="Secret heart hunt" onclick="if(event.target===this)closeHunt()">
+  <div class="hunt-panel">
+    <h2>🔎 Ribby's Secret Hunt</h2>
+    <p>Five little blue hearts are hiding in our story. Some things are worth looking for. 💙</p>
+    <div class="hunt-progress" id="huntProgress">♡ ♡ ♡ ♡ ♡</div>
+    <p id="huntStatus">Find all five to unlock a secret message.</p>
+    <button type="button" id="huntReveal" onclick="revealSecretEnding()" style="display:none">Open secret surprise 🎁</button>
+    <button type="button" onclick="closeHunt()">Back to our story →</button>
+  </div>
+</div>
+<div class="secret-toast" id="secretToast" role="status" aria-live="polite" style="display:none"></div>
+
+
+<!-- OPTIONAL BONUS ARCADE: story pages remain untouched -->
+<button class="arcade-tab" type="button" onclick="openArcade()" aria-label="Open Ribby's bonus arcade">🎮 Bonus Arcade</button>
+<div class="arcade-overlay" id="arcadeOverlay" role="dialog" aria-modal="true" aria-label="Ribby's bonus arcade" onclick="if(event.target===this)closeArcade()">
+  <div class="arcade-panel">
+    <div id="arcadeBody"></div>
+    <button class="arcade-action" type="button" onclick="closeArcade()">✕ Back to our story</button>
+  </div>
+</div>
 
 <!-- PAGE 1 -->
 <section class="page active" id="page1">
@@ -347,7 +481,7 @@
 <!-- PAGE 2 -->
 <section class="page" id="page2">
     <div class="card">
-        <h2>🌙 How It Started</h2>
+        <h2>🌙 How It Started <button type="button" class="secret-trigger" onclick="findHeart(1)" aria-label="Investigate the moon">🌙</button></h2>
 
         <p>
             It's kinda crazy thinking about how this all started.
@@ -375,7 +509,7 @@
 <!-- PAGE 3 -->
 <section class="page" id="page3">
     <div class="card">
-        <h2>The Boo Incident 👻</h2>
+        <h2>The Boo Incident <button type="button" class="secret-trigger" onclick="findHeart(2)" aria-label="Investigate the ghost">👻</button></h2>
 
         <p>
             One completely normal day...
@@ -586,7 +720,7 @@
 <!-- PAGE 9 -->
 <section class="page" id="page9">
     <div class="card">
-        <h2>🔫 The R.E.P.O. Incident</h2>
+        <h2>🔫 The R.E.P.O. Incident <button type="button" class="secret-trigger" onclick="findHeart(3)" aria-label="Investigate the evidence">🔎</button></h2>
 
         <p>
             One of my favorite memories with you...
@@ -643,7 +777,7 @@
 <!-- PAGE 10 -->
 <section class="page" id="page10">
     <div class="card">
-        <h2>🎧 Our Song</h2>
+        <h2>🎧 Our Song <button type="button" class="secret-trigger" onclick="findHeart(4)" aria-label="Investigate the music note">🎵</button></h2>
 
         <div class="song">
             <h2>Understand</h2>
@@ -747,7 +881,7 @@
 <!-- PAGE 13 -->
 <section class="page" id="page13">
     <div class="card">
-        <h2>Dear Ribby,</h2>
+        <h2>Dear Ribby, <button type="button" class="secret-trigger" onclick="findHeart(5)" aria-label="Investigate the letter">💌</button></h2>
 
         <p>
             I don't think you fully understand how happy
@@ -794,12 +928,39 @@
             — Your Markom
         </div>
 
-        <button onclick="nextPage(14)">
-            Finish ❤️
+        <button onclick="nextPage(18)">
+            One more little thing for you 💌
         </button>
     </div>
 </section>
 
+
+
+<!-- PAGE 18: VISIBLE OPEN WHEN LETTERS — AFTER THE MAIN LOVE LETTER -->
+<section class="page" id="page18">
+  <div class="card">
+    <div class="heart">💌</div>
+    <h2>Open When... 💙</h2>
+    <p>Some days are happy, some days are harder, and sometimes you just need a little reminder that someone cares.</p>
+    <p>So I made you a few letters you can come back to whenever you want. 🥹</p>
+    <p class="letters-help">Tap any envelope to open it. You can read them as many times as you like.</p>
+    <div class="letters-grid">
+      <button type="button" class="letter-envelope" id="envelope-sad" onclick="openWhenLetter('sad')"><span class="envelope-icon">💙</span>Open when you're sad</button>
+      <button type="button" class="letter-envelope" id="envelope-miss" onclick="openWhenLetter('miss')"><span class="envelope-icon">🌙</span>Open when you miss me</button>
+      <button type="button" class="letter-envelope" id="envelope-smile" onclick="openWhenLetter('smile')"><span class="envelope-icon">🐈‍⬛</span>Open when you need a smile</button>
+      <button type="button" class="letter-envelope" id="envelope-doubt" onclick="openWhenLetter('doubt')"><span class="envelope-icon">✨</span>Open when you doubt yourself</button>
+      <button type="button" class="letter-envelope" id="envelope-sleep" onclick="openWhenLetter('sleep')"><span class="envelope-icon">⭐</span>Open before you sleep</button>
+      <button type="button" class="letter-envelope" id="envelope-birthday" onclick="openWhenLetter('birthday')"><span class="envelope-icon">🎂</span>Open on your birthday</button>
+    </div>
+    <div id="openedLetter" class="letter-paper" hidden aria-live="polite">
+      <h3 id="openedLetterTitle"></h3>
+      <div id="openedLetterText"></div>
+      <p class="letter-signoff">— Your Markom 🖤💙</p>
+      <button type="button" onclick="closeWhenLetter()" style="color:#fff">Close letter ✉️</button>
+    </div>
+    <button type="button" onclick="nextPage(14)">Continue to the ending ❤️</button>
+  </div>
+</section>
 
 <!-- PAGE 14 -->
 <section class="page" id="page14">
@@ -898,7 +1059,263 @@
 </section>
 
 
+
+
+<!-- BONUS PAGE: UNLOCKED BY FINDING FIVE HEARTS -->
+<section class="page" id="page17">
+  <div class="card">
+    <div class="heart">💙</div>
+    <h2>Achievement Unlocked: You Found My Heart 🏆</h2>
+    <p>Ribby, you found every little secret I hid for you.</p>
+    <br>
+    <p>But there's something you didn't have to search for.</p>
+    <div class="quote">My heart was yours from the beginning. 🥹💙</div>
+    <p>Whether we're laughing at a game, talking about nothing, or just missing each other from far away, I'm so happy it's you.</p>
+    <p class="signature">Your very own Markom. 🖤💙</p>
+    <button type="button" onclick="heartExplosion()">More hearts!! 💙</button>
+    <button type="button" onclick="nextPage(16)">Back to the birthday ending →</button>
+  </div>
+</section>
+
 <script>
+
+
+    /* FIVE-HEART HUNT + FUN SECRETS */
+    const secretMessages = {
+      1: ["Moonlight Detective 🌙", "Even far apart, we're under the same sky. 💙"],
+      2: ["Boo Survivor 👻", "AHH DONT SCARE ME DUMMY — and somehow that changed everything. 😭"],
+      3: ["Shotgun Witness 🔎", "Achievement unlocked: Evidence of girlfriend crimes. 10/10 girlfriend, questionable teammate. 💀"],
+      4: ["Certified Keshi Listener 🎵", "You gave me a song. Now it always reminds me of you. 💙"],
+      5: ["Love Letter Detective 💌", "Psst... Markom loves you more than this website can explain. 🥹"]
+    };
+    const foundHearts = new Set();
+    let toastTimer;
+
+    function findHeart(id) {
+      if (foundHearts.has(id)) {
+        showToast("You already found this one! Try another secret. 💙");
+        return;
+      }
+      foundHearts.add(id);
+      document.getElementById("huntCount").textContent = foundHearts.size;
+      document.getElementById("huntProgress").textContent =
+        Array.from({length: 5}, (_, i) => foundHearts.has(i+1) ? "💙" : "♡").join(" ");
+      const [achievement, message] = secretMessages[id];
+      showToast("🏆 " + achievement + "<br>" + message);
+      heartExplosion();
+      if (foundHearts.size === 5) {
+        document.getElementById("huntStatus").textContent = "ALL FIVE FOUND! A secret page is now unlocked! 🎉";
+        document.getElementById("huntReveal").style.display = "inline-block";
+        setTimeout(() => showToast("💙 5/5! Tap the Secrets counter to open your bonus surprise!"), 2200);
+      } else {
+        document.getElementById("huntStatus").textContent =
+          foundHearts.size + " of 5 hearts found. Keep investigating! 👀";
+      }
+    }
+    function showToast(message) {
+      const toast = document.getElementById("secretToast");
+      toast.innerHTML = message;
+      toast.style.display = "block";
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => { toast.style.display = "none"; }, 4000);
+    }
+    function showHunt() { document.getElementById("huntModal").classList.add("open"); }
+    function closeHunt() { document.getElementById("huntModal").classList.remove("open"); }
+    function revealSecretEnding() {
+      if (foundHearts.size !== 5) return;
+      closeHunt();
+      nextPage(17);
+      heartExplosion();
+    }
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeHunt();
+    });
+
+
+    /* RIBBY BONUS ARCADE: vending machine, relationship quiz, secret vault */
+    const loveNotes = [
+      "💙 You have received: one unlimited Markom hug. Redeem whenever we meet.",
+      "🐈‍⬛ Official certificate: World's Cutest Cat Enthusiast.",
+      "🎮 You make even the chaotic game nights my favorite memories.",
+      "🌙 Different places, same sky. I'm always cheering for you.",
+      "💌 Tiny reminder: you make ordinary days feel special.",
+      "🔫 Your shotgun privileges are under review. Love you anyway. 💀",
+      "🎧 Every time I hear our song, I think of you.",
+      "✨ Achievement unlocked: Making Markom smile by simply existing.",
+      "🖤 Black and blue look even better because they're your colors.",
+      "🥹 You never have to be anyone else around me. I like you as you are."
+    ];
+    const relationshipQuestions = [
+      {q:"What was Ribby's iconic first message?",a:["boo","hey bestie","good morning","guess who"],correct:0,reply:"The legendary BOO incident. 👻"},
+      {q:"Who helped us finally confess?",a:["A mysterious cat","Lulu","A game NPC","A Spotify playlist"],correct:1,reply:"Lulu: certified wingman. 🫡"},
+      {q:"Who caused the infamous R.E.P.O. shotgun incident?",a:["Markom","The cat","Ribby","Nobody"],correct:2,reply:"The evidence is overwhelming. 🔫💀"},
+      {q:"Which song did Ribby recommend?",a:["Understand — keshi","Golden Hour — JVKE","Heather — Conan Gray","Yellow — Coldplay"],correct:0,reply:"Our song. 🎧💙"},
+      {q:"Which colors are Ribby's favorites?",a:["Pink and yellow","Black and blue","Green and orange","Red and white"],correct:1,reply:"Black and blue supremacy. 🖤💙"}
+    ];
+    let vendingLast = -1, quizIndex = 0, quizScore = 0, quizLocked = false, vaultUnlocked = false;
+    function arcadeRender(markup) { document.getElementById("arcadeBody").innerHTML = markup; }
+    function openArcade(){document.getElementById("arcadeOverlay").classList.add("open");arcadeHome();}
+    function closeArcade(){document.getElementById("arcadeOverlay").classList.remove("open");}
+    function arcadeHome(){
+      arcadeRender(`<h2>🎮 Ribby's Bonus Arcade</h2><p>Three extra surprises. No hearts required — just curiosity. 💙</p>
+      <div class="arcade-menu">
+      <button onclick="vendingHome()">💌 Love Vending Machine</button>
+      <button onclick="startRelationshipQuiz()">🎯 How Well Do You Know Us?</button>
+      <button onclick="vaultHome()">🔐 Secret Vault</button>
+      </div><p class="arcade-small">Psst... the vault password is hiding somewhere in our story. 👀</p>`);
+    }
+    function vendingHome(){
+      arcadeRender(`<h2>💌 Love Vending Machine</h2><p>Free love notes, unlimited refills. No coins needed!</p>
+      <div class="arcade-note" id="vendingNote">Press the button for a surprise from Markom. 🥹</div>
+      <button class="arcade-action" onclick="dispenseLove()">💙 Dispense a note</button>
+      <button class="arcade-action" onclick="arcadeHome()">← Arcade</button>`);
+    }
+    function dispenseLove(){
+      let n=Math.floor(Math.random()*loveNotes.length);
+      if(loveNotes.length>1 && n===vendingLast) n=(n+1)%loveNotes.length;
+      vendingLast=n;
+      document.getElementById("vendingNote").textContent=loveNotes[n];
+      if(typeof heartExplosion==="function") heartExplosion();
+    }
+    function startRelationshipQuiz(){quizIndex=0;quizScore=0;showQuizQuestion();}
+    function showQuizQuestion(){
+      quizLocked=false;
+      if(quizIndex>=relationshipQuestions.length){
+        arcadeRender(`<h2>🏆 Quiz complete!</h2><div class="arcade-note">You got ${quizScore}/${relationshipQuestions.length}!</div>
+        <p>${quizScore===5?"PERFECT SCORE! Certified Ribby × Markom historian. 💙":"No matter the score, you're still my favorite person to make memories with. 🥹💙"}</p>
+        <button class="arcade-action" onclick="startRelationshipQuiz()">↻ Play again</button>
+        <button class="arcade-action" onclick="arcadeHome()">← Arcade</button>`);
+        if(quizScore===5 && typeof heartExplosion==="function")heartExplosion();
+        return;
+      }
+      const item=relationshipQuestions[quizIndex];
+      const choices=item.a.map((answer,i)=>`<button onclick="answerRelationshipQuiz(${i})">${String.fromCharCode(65+i)}. ${answer}</button>`).join("");
+      arcadeRender(`<h2>🎯 Our Story Quiz</h2><p class="arcade-small">Question ${quizIndex+1} of ${relationshipQuestions.length} • Score ${quizScore}</p>
+      <p><strong>${item.q}</strong></p><div class="arcade-choices" id="quizChoices">${choices}</div>
+      <p id="quizFeedback" aria-live="polite"></p>
+      <button class="arcade-action" onclick="arcadeHome()">← Arcade</button>`);
+    }
+    function answerRelationshipQuiz(answer){
+      if(quizLocked)return;
+      quizLocked=true;
+      const item=relationshipQuestions[quizIndex],correct=answer===item.correct;
+      if(correct)quizScore++;
+      document.querySelectorAll("#quizChoices button").forEach(b=>b.disabled=true);
+      document.getElementById("quizFeedback").textContent=(correct?"💙 Correct! ":"Almost! 💙 ")+item.reply;
+      const next=document.createElement("button");
+      next.className="arcade-action";
+      next.textContent=quizIndex===relationshipQuestions.length-1?"See my results 🏆":"Next question →";
+      next.onclick=()=>{quizIndex++;showQuizQuestion();};
+      document.getElementById("quizFeedback").after(next);
+    }
+    function vaultHome(){
+      if(vaultUnlocked){showVaultPrize();return;}
+      arcadeRender(`<h2>🔐 The Secret Vault</h2><p>Only a true Ribby investigator knows the password.</p>
+      <p class="arcade-small">Hint: three letters. The first message that started it all. 👻</p>
+      <input id="vaultPassword" type="text" maxlength="20" autocomplete="off" placeholder="Password" aria-label="Vault password"
+      onkeydown="if(event.key==='Enter')tryVault()">
+      <p id="vaultFeedback" aria-live="polite"></p>
+      <button class="arcade-action" onclick="tryVault()">Unlock 🔓</button>
+      <button class="arcade-action" onclick="arcadeHome()">← Arcade</button>`);
+    }
+    function tryVault(){
+      const guess=document.getElementById("vaultPassword").value.trim().toLowerCase();
+      if(guess==="boo"){vaultUnlocked=true;showVaultPrize();if(typeof heartExplosion==="function")heartExplosion();}
+      else document.getElementById("vaultFeedback").textContent="Not quite! Think back to the beginning of our story. 👻";
+    }
+    function showVaultPrize(){
+      arcadeRender(`<h2>🔓 VAULT UNLOCKED!</h2>
+      <div class="arcade-note"><h3>Top Secret: For Ribby's Eyes Only 💙</h3>
+      <p>Dear Ribby,</p>
+      <p>Out of all the random people on the internet, somehow I got lucky enough to meet you.</p>
+      <p>From one silly “boo” to all the laughter and memories we've made, you became someone really special to me.</p>
+      <p>I don't know every adventure waiting for us, but I know I want to keep making memories with you.</p>
+      <p>Love, your Markom. 🖤💙</p></div>
+      <p class="arcade-small">Achievement unlocked: Professional Markom Investigator 🏆</p>
+      <button class="arcade-action" onclick="arcadeHome()">← Arcade</button>`);
+    }
+    document.addEventListener("keydown",e=>{if(e.key==="Escape")closeArcade();});
+
+
+    /* OPEN WHEN LETTERS */
+    const openWhenLetters = {
+      "sad": {
+            "title": "Open when you're sad 💙",
+            "paragraphs": [
+                  "hey sweet girl. im so sorry that today hasnt been going the way you wanted or it isnt being kind to you. you dont need to pretend to be okay or force a smile. just be gentle with yourself, take all the time you need, and dont forget to text me whenever you're feeling down.",
+                  "i wish i could be there to hug you and just listen to you while you talk abt the stuff that bothers you. but imagine im giving you the biggest, warmest hug rn.",
+                  "im so proud of you and i love you so much. hope this makes ur day a bit better :)"
+            ]
+      },
+      "miss": {
+            "title": "Open when you miss me 🌙",
+            "paragraphs": [
+                  "Haii ribbyyyy, if you are reading this, it probably means you miss me. lemme tell you, i miss you sososo much too. i wish i could be by your side all the time, but sadly it aint possible ;(",
+                  "Its weird how someone who lives so far away from me can still make me this happy. whenever you miss me, just think abt our little silly calls, the games we play, and just us laughing together.",
+                  "one more thing. when its night and you can see the moon, look at it and think of me... because just maybe ill also be looking at it, and thats something that connects us together.",
+                  "sending lots of love <3"
+            ]
+      },
+      "smile": {
+            "title": "Open when you need a smile 🐈‍⬛",
+            "paragraphs": [
+                  "EMERGENCYYY!!!! CODE RED CODE REEED!!!",
+                  "HERE IS WHAT WE KNOW: A very suspicious yet beautiful girl has committed MURDER with a shotgun... the victim, called Mark, was trying to buy it when she grabbed it and shot him TWO TIMES!!!! BUT the suspect still remains extremely cute :3",
+                  "THE PUNISHMENT: unlimited hugs from the victim and one cat plushie with a tiny crown :D",
+                  "i hope that got at least a little smile out of you, dummy <3"
+            ]
+      },
+      "doubt": {
+            "title": "Open when you doubt yourself ✨",
+            "paragraphs": [
+                  "EXCUUSEEE ME????? WHY ARE YOU DOUBTING YOURSELF >:(",
+                  "my love, idk whats making you feel this way, and i know times can be hard sometimes. but you being so hard on yourself makes me sad :( AND IT MAKES ME EXTREMELY MAD >:( YOU KNOW WHY?",
+                  "because in you, i see someone who is kind, sweet, smart, funny, thoughtful, and absolutely wonderful.",
+                  "you dont have to be perfect. you can make mistakes, and it wont make you any less amazing.",
+                  "if you could just try to see yourself a little more kindly, maybe you'd start seeing some of the wonderful things i see in you.",
+                  "U ARE AMAZING NEVER FORGEEET :D"
+            ]
+      },
+      "sleep": {
+            "title": "Open before you sleep ⭐",
+            "paragraphs": [
+                  "Good night my sweet girl. i hope you sleep well.",
+                  "if we talked today, then thank you for making my day brighter. if we didnt, im still the happiest person since i get to be ur bf, and there is always another day for another silly little conversation.",
+                  "i really want to cuddle with you rn, but sadly i cant.",
+                  "sleep well, love, and remember im always waiting for you to wake up and send me a message :)"
+            ]
+      },
+      "birthday": {
+            "title": "Open on your birthday 🎂",
+            "paragraphs": [
+                  "HAPPY 15th BIRTHDAYY RIBBYYY!!!!",
+                  "i hope today is filled with all of your fav things. i hope its filled with laughter and joy and ofc all the love that you deserve.",
+                  "i made this website so you can have something that you could explore and smile at, even when im not right there beside you.",
+                  "Im so glad we met. thank you for being there for me. i love you.",
+                  "Happy birthday sweet girl :)"
+            ]
+      }
+};
+    function openWhenLetter(key) {
+      const letter = openWhenLetters[key];
+      if (!letter) return;
+      document.getElementById("openedLetterTitle").textContent = letter.title;
+      const body = document.getElementById("openedLetterText");
+      body.replaceChildren();
+      letter.paragraphs.forEach(line => {
+        const p = document.createElement("p");
+        p.textContent = line;
+        body.appendChild(p);
+      });
+      document.getElementById("openedLetter").hidden = false;
+      document.querySelectorAll(".letter-envelope").forEach(el => el.classList.remove("opened"));
+      document.getElementById("envelope-" + key).classList.add("opened");
+      document.getElementById("openedLetter").scrollIntoView({behavior:"smooth",block:"nearest"});
+    }
+    function closeWhenLetter() {
+      document.getElementById("openedLetter").hidden = true;
+      document.querySelectorAll(".letter-envelope").forEach(el => el.classList.remove("opened"));
+    }
 
     /* PAGE SWITCHING */
     function nextPage(number) {
@@ -975,7 +1392,7 @@
             "The cat has accepted you.",
             "Okay stop petting me 😭",
             "Fine... one more.",
-            "Achievement unlocked: Certified Cat Person 🏆"
+            "Achievement unlocked: Certified Cat Person 🏆 — The Ribby Protection Squad approves!"
         ];
 
         document.getElementById("catText").innerText =
