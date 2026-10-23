@@ -195,6 +195,21 @@
         to { transform: scale(1); opacity: 1; }
     }
 
+
+    /* GREMLIN MEMORY GAME */
+    .gremlin-game { margin: 30px auto 5px; padding: 24px 18px; max-width: 560px; background: rgba(22, 51, 101, .36); border: 1px solid rgba(112, 176, 255, .28); border-radius: 20px; }
+    .gremlin-game h3 { color: #a8caff; font-size: 1.5rem; margin: 0 0 12px; }
+    .gremlin-label { display: block; text-align: left; max-width: 420px; margin: 16px auto 6px; color: #b7d2f9; }
+    #gremlinGuess { display: block; width: 100%; max-width: 420px; box-sizing: border-box; margin: 0 auto; padding: 14px 16px; border-radius: 12px; background: #101c34; border: 1px solid #5575ac; color: #fff; font: inherit; }
+    #gremlinGuess:focus { outline: 2px solid #79b7ff; outline-offset: 2px; }
+    .gremlin-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .gremlin-actions button { margin-top: 16px; }
+    .gremlin-actions .gremlin-secondary { background: #273958; box-shadow: none; }
+    .gremlin-result { margin-top: 18px; padding: 18px; background: #203252; border-radius: 14px; color: #dceaff; line-height: 1.7; }
+    .gremlin-result strong { display: block; color: #a9d0ff; margin-bottom: 9px; font-size: 1.15rem; }
+    .bubble.thought { margin-left: auto; background: #263857; border: 1px dashed #7895c9; border-radius: 22px; font-size: 1.05rem; }
+    .thought-label { display: inline-block; color: #b7c8eb; font-size: .85rem; margin-bottom: 5px; }
+
     /* INTERESTS */
     .interests {
         display: flex;
@@ -211,7 +226,7 @@
         border-radius: 100px;
     }
 
-    /* 15 REASONS */
+    /* 20 REASONS */
     #reasonBox {
         min-height: 120px;
         margin-top: 25px;
@@ -482,62 +497,44 @@
 <section class="page" id="page2">
     <div class="card">
         <h2>🌙 How It Started <button type="button" class="secret-trigger" onclick="findHeart(1)" aria-label="Investigate the moon">🌙</button></h2>
-
-        <p>
-            It's kinda crazy thinking about how this all started.
-        </p>
-
+        <p>It's kinda crazy thinking about how this all started... with music. 🎶</p>
         <br>
+        <p>Just two people talking about songs and sharing our thoughts. At first, it was just little conversations about music. Neither of us knew those conversations would turn into something so special.</p>
+        <div class="quote">And somehow, those little conversations led me to you. 💙</div>
 
-        <p>
-            Just a random server.
-            Two people who barely talked.
-            Neither of us knowing what was about to happen.
-        </p>
-
-        <div class="quote">
-            And somehow, that random server gave me you.
+        <div class="gremlin-game">
+            <h3>Do you remember? 🐈‍⬛</h3>
+            <p>also at the beginning, i got my very first nickname from you... do you remember which one it was? 👀</p>
+            <label for="gremlinGuess" class="gremlin-label">your guess:</label>
+            <input id="gremlinGuess" type="text" placeholder="type the nickname here..." autocomplete="off" onkeydown="if(event.key==='Enter') checkGremlin()">
+            <div class="gremlin-actions">
+                <button type="button" onclick="checkGremlin()">Check my answer 💙</button>
+                <button type="button" class="gremlin-secondary" onclick="revealGremlin()">i dont know...</button>
+            </div>
+            <div id="gremlinResult" class="gremlin-result" role="status" aria-live="polite" hidden></div>
         </div>
 
-        <button onclick="nextPage(3)">
-            Then something terrifying happened... 😨
-        </button>
+        <button onclick="nextPage(3)">And then came the little boo... 👻</button>
     </div>
 </section>
-
 
 <!-- PAGE 3 -->
 <section class="page" id="page3">
     <div class="card">
         <h2>The Boo Incident <button type="button" class="secret-trigger" onclick="findHeart(2)" aria-label="Investigate the ghost">👻</button></h2>
-
-        <p>
-            One completely normal day...
-        </p>
-
+        <p>One little thing I absolutely love about you is the way you always say "boo" 💙</p>
         <div class="chat">
-            <div class="bubble ribby">
-                <b>Ribby</b><br>
-                boo
-            </div>
-
-            <div class="bubble markom">
-                <b>Markom</b><br>
-                AHH DONT SCARE ME DUMMY
-            </div>
+            <div class="bubble ribby"><b>Ribby</b><br>boo 👻</div>
+            <div class="bubble thought"><span class="thought-label">💭 Markom's thoughts</span><br><i>"aww thats cute"</i></div>
         </div>
-
-        <p>
-            And somehow one little <span class="blue">"boo"</span>
-            was the beginning of us talking more and more.
-        </p>
-
-        <button onclick="nextPage(4)">
-            Keep going 💙
-        </button>
+        <p>idk why but it makes you seem so cute and silly, and it always makes me smile.</p>
+        <br>
+        <p>and funny enough, that little <span class="blue">"boo"</span> was kinda the beginning of us talking more casually and getting closer.</p>
+        <br>
+        <p>who would've thought such a tiny word would become one of my favorite things about you? 🥹</p>
+        <button onclick="nextPage(4)">Keep going 💙</button>
     </div>
 </section>
-
 
 <!-- PAGE 4 -->
 <section class="page" id="page4">
@@ -694,10 +691,6 @@
             You went into tomato mode.
         </p>
 
-        <p>
-            You cried a little.
-        </p>
-
         <br>
 
         <p>
@@ -707,7 +700,7 @@
         <div class="heart">💙</div>
 
         <p>
-            That's the day <b>you became my Ribby.</b>
+            That's the day <b>you became my sweet girl.</b>
         </p>
 
         <button onclick="heartExplosion(); nextPage(9)">
@@ -849,10 +842,10 @@
 <!-- PAGE 12 -->
 <section class="page" id="page12">
     <div class="card">
-        <h2>💙 15 Things I Love About You</h2>
+        <h2>💙 20 Things I Love About You</h2>
 
         <p>
-            One for every year of the birthday girl.
+            Twenty little reasons, and somehow still not enough. 💙
         </p>
 
         <div id="reasonBox">
@@ -860,7 +853,7 @@
         </div>
 
         <div id="reasonCounter">
-            0 / 15
+            0 / 20
         </div>
 
         <button id="reasonButton" onclick="nextReason()">
@@ -1083,7 +1076,7 @@
     /* FIVE-HEART HUNT + FUN SECRETS */
     const secretMessages = {
       1: ["Moonlight Detective 🌙", "Even far apart, we're under the same sky. 💙"],
-      2: ["Boo Survivor 👻", "AHH DONT SCARE ME DUMMY — and somehow that changed everything. 😭"],
+      2: ["Boo Survivor 👻", "That little “boo” made me think “aww thats cute.” 💙"],
       3: ["Shotgun Witness 🔎", "Achievement unlocked: Evidence of girlfriend crimes. 10/10 girlfriend, questionable teammate. 💀"],
       4: ["Certified Keshi Listener 🎵", "You gave me a song. Now it always reminds me of you. 💙"],
       5: ["Love Letter Detective 💌", "Psst... Markom loves you more than this website can explain. 🥹"]
@@ -1146,7 +1139,7 @@
       "🥹 You never have to be anyone else around me. I like you as you are."
     ];
     const relationshipQuestions = [
-      {q:"What was Ribby's iconic first message?",a:["boo","hey bestie","good morning","guess who"],correct:0,reply:"The legendary BOO incident. 👻"},
+      {q:"What was Ribby's iconic spooky message?",a:["boo","hey bestie","good morning","guess who"],correct:0,reply:"The legendary BOO incident. 👻"},
       {q:"Who helped us finally confess?",a:["A mysterious cat","Lulu","A game NPC","A Spotify playlist"],correct:1,reply:"Lulu: certified wingman. 🫡"},
       {q:"Who caused the infamous R.E.P.O. shotgun incident?",a:["Markom","The cat","Ribby","Nobody"],correct:2,reply:"The evidence is overwhelming. 🔫💀"},
       {q:"Which song did Ribby recommend?",a:["Understand — keshi","Golden Hour — JVKE","Heather — Conan Gray","Yellow — Coldplay"],correct:0,reply:"Our song. 🎧💙"},
@@ -1317,6 +1310,27 @@
       document.querySelectorAll(".letter-envelope").forEach(el => el.classList.remove("opened"));
     }
 
+
+    /* GREMLIN MEMORY GAME */
+    function gremlinResponse(title, showMemory) {
+        const box = document.getElementById('gremlinResult');
+        box.hidden = false;
+        const heading = document.createElement('strong');
+        heading.textContent = title;
+        box.replaceChildren(heading);
+        if (showMemory) {
+            const message = document.createElement('span');
+            message.textContent = 'it was special to me because it was the very first nickname you gave me. and tbh, i actually liked it a lot more than you probably realized. it made me smile every time you called me it. 💙';
+            box.appendChild(message);
+        }
+    }
+    function checkGremlin() {
+        const guess = document.getElementById('gremlinGuess').value.trim().toLowerCase();
+        if (guess === 'gremlin') gremlinResponse('ur not a dummy afterall (u still are :3)', true);
+        else gremlinResponse('NOOO DUMMY 😭 try again!', false);
+    }
+    function revealGremlin() { gremlinResponse('IT WAS GREMLIN DUMMY >:(', true); }
+
     /* PAGE SWITCHING */
     function nextPage(number) {
         document.querySelectorAll(".page").forEach(page => {
@@ -1400,7 +1414,7 @@
     }
 
 
-    /* 15 REASONS */
+    /* 20 REASONS */
     const reasons = [
 
     "1. Your kindness. You genuinely have the kindest heart ever. ❤️‍🩹",
@@ -1431,7 +1445,17 @@
 
     "14. The way my smile never fades whenever we call (you can probs hear it.. 😭)",
 
-    "15. I love you because you are yourself around me. I don’t want you to be anybody else around me. Just you. Because you are the person who brings joy to my life. I love you so much, my sweet girl. 🥹❤️‍🩹"
+    "15. when we call i just love how my smile usually never fades... plus i blush like an idiot cuz you're too dang pretty. 🥹💙",
+
+    "16. i love your little \"mean\" side cuz it just genuinely makes the relationship fun, and i love being the one obeying orders... (im not submissive at all)",
+
+    "17. one thing i absolutely love is the height difference and that im 1 year older... cuz i can BABY YOU WHENEVER. i love you 😊❤️",
+
+    "18. i absolutely love your voice. idk how to explain it but just hearing you talk makes me so happy. i could listen to you ramble about literally anything for hours and never get bored. GIRL YOU HAVE NO IDEA HOW MUCH I LOVE THAT 😭💙",
+
+    "19. one thing i love so much about you is how safe and comfortable you make me feel. i can tell you about my day, my worries, or literally the dumbest things ever, and somehow you always make me feel better. thank you for making me feel like i matter. you have no idea how much that means to me. 🥹❤️‍🩹",
+
+    "20. I love you because you are yourself around me. I don’t want you to be anybody else around me. Just you. Because you are the person who brings joy to my life. I love you so much, my sweet girl. 🥹❤️‍🩹"
     ];
 
     let reasonIndex = 0;
@@ -1440,13 +1464,29 @@
 
         if (reasonIndex < reasons.length) {
 
-            document.getElementById("reasonBox").innerText =
-                reasons[reasonIndex];
+            const reasonBox = document.getElementById("reasonBox");
+            reasonBox.innerText = reasons[reasonIndex];
+            if (reasonIndex === 15) {
+                const secretButton = document.createElement("button");
+                secretButton.type = "button";
+                secretButton.textContent = "Psst... tap for a secret 👀";
+                secretButton.style.cssText = "display:block;margin:16px auto 0;font-size:0.9rem;";
+                const secretText = document.createElement("div");
+                secretText.textContent = "only for you i am 🤫💙";
+                secretText.style.cssText = "display:none;margin-top:12px;font-style:italic;color:#a9c9ff;";
+                secretButton.addEventListener("click", () => {
+                    const showing = secretText.style.display !== "none";
+                    secretText.style.display = showing ? "none" : "block";
+                    secretButton.textContent = showing ? "Psst... tap for a secret 👀" : "Hide secret 💙";
+                });
+                reasonBox.appendChild(secretButton);
+                reasonBox.appendChild(secretText);
+            }
 
             reasonIndex++;
 
             document.getElementById("reasonCounter").innerText =
-                reasonIndex + " / 15";
+                reasonIndex + " / " + reasons.length;
 
             heartExplosion();
 
