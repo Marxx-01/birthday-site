@@ -805,39 +805,11 @@
             You. 💙
         </div>
 
-        <button onclick="nextPage(11)">
+        <button onclick="nextPage(12)">
             Continue →
         </button>
     </div>
 </section>
-
-<!-- PAGE 11 -->
-<section class="page" id="page11">
-    <div class="card">
-        <h2>Things That Make Ribby, Ribby.</h2>
-
-        <div class="interests">
-            <div class="interest">🐱 Cats</div>
-            <div class="interest">🎨 Drawing</div>
-            <div class="interest">🎮 Playing</div>
-            <div class="interest">🏐 Volleyball</div>
-            <div class="interest">❤️ Markom hehe</div>
-        </div>
-
-        <br><br>
-
-        <div class="cat" onclick="petCat()">🐈‍⬛</div>
-
-        <p id="catText">
-            Psst... pet the cat.
-        </p>
-
-        <button onclick="nextPage(12)">
-            I have something to tell you →
-        </button>
-    </div>
-</section>
-
 
 <!-- PAGE 12 -->
 <section class="page" id="page12">
@@ -1150,12 +1122,20 @@
     function openArcade(){document.getElementById("arcadeOverlay").classList.add("open");arcadeHome();}
     function closeArcade(){document.getElementById("arcadeOverlay").classList.remove("open");}
     function arcadeHome(){
-      arcadeRender(`<h2>🎮 Ribby's Bonus Arcade</h2><p>Three extra surprises. No hearts required — just curiosity. 💙</p>
+      arcadeRender(`<h2>🎮 Ribby's Bonus Arcade</h2><p>Four extra surprises. No hearts required — just curiosity. 💙</p>
       <div class="arcade-menu">
       <button onclick="vendingHome()">💌 Love Vending Machine</button>
       <button onclick="startRelationshipQuiz()">🎯 How Well Do You Know Us?</button>
       <button onclick="vaultHome()">🔐 Secret Vault</button>
+      <button onclick="catHome()">🐈‍⬛ Pet the Cat</button>
       </div><p class="arcade-small">Psst... the vault password is hiding somewhere in our story. 👀</p>`);
+    }
+    function catHome(){
+      catClicks = 0;
+      arcadeRender(`<h2>🐈‍⬛ Pet the Cat</h2><p>Our little feline friend is waiting for you. 💙</p>
+      <div class="cat" role="button" tabindex="0" aria-label="Pet the cat" onclick="petCat()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();petCat()}">🐈‍⬛</div>
+      <p id="catText" aria-live="polite">Psst... pet the cat.</p>
+      <button class="arcade-action" onclick="arcadeHome()">← Arcade</button>`);
     }
     function vendingHome(){
       arcadeRender(`<h2>💌 Love Vending Machine</h2><p>Free love notes, unlimited refills. No coins needed!</p>
